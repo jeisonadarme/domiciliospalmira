@@ -5,7 +5,7 @@
     .factory('domicileService', ['$firebaseObject', '$firebaseArray', function($firebaseObject, $firebaseArray){
         var ref = firebase.database().ref();
         var domicileNode = "domicilio";
-        var oderKey = "estado";
+        var oderKey = "userId";
 
         var save = function(domicile, callback){
             var obj = $firebaseObject(ref.child(domicileNode).push());
@@ -20,16 +20,34 @@
             });
         }
 
-        var getAll = function(callback){
+        var getAll = function(id, callback){
             var domicilesRef = firebase.database().ref().child(domicileNode);
-            var query = domicilesRef.orderByChild(oderKey);
+            var query = domicilesRef.orderByChild(oderKey).equalTo(id);
             var domiciles = $firebaseArray(query);
             callback(false, domiciles);
         }
 
+        var update = function(domicile, callback)
+        {
+            var domicilesRef = firebase.database().ref().child(domicileNode);
+            var obj = $firebaseObject(domicilesRef.child(domicile.$id));
+            obj.$loaded().then(function() {
+                obj.estado = domicile.estado;
+                obj.direccion = domicile.direccion;
+                obj.pedido = domicile.pedido;
+                obj.tiempoEspera = domicile.tiempoEspera;
+                obj.$save();
+            }).then(function() {
+                callback(false);
+            }).catch(function(error) {
+                callback(true);
+            });
+        }
+
         return {
             save: save,
-            getAll: getAll
+            getAll: getAll,
+            update: update
         }
     }])
 })();

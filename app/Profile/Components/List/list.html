@@ -23,14 +23,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr ng-repeat="domicile in $ctrl.domiciles">
+							<tr ng-repeat="domicile in $ctrl.domiciles | orderBy:'estado'">
 								<th scope="row">{{$index + 1}}</th>
 								<td>{{domicile.direccion}}</td>
 								<td>{{domicile.pedido}}</td>
 								<td>{{domicile.tiempoEspera}}</td>
 								<td>{{$ctrl.state(domicile.estado)}}</td>
 								<td>
-									<a ng-link="['IndexProfile']" ng-disabled="domicile.estado != 1" class="btn btn-success btn-pedido btn-cancelar">CANCELAR</a>
+									<a ng-click="$ctrl.cancel(domicile)" ng-disabled="domicile.estado != 1" class="btn btn-success btn-pedido btn-cancelar">CANCELAR</a>
 								</td>
 							</tr>
 						</tbody>

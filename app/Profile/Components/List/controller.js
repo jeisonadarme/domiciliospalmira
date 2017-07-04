@@ -4,9 +4,10 @@
     function list($scope, domicileService) {
         var $ctrl = this;
         $ctrl.empty = false;
+        $ctrl.user = JSON.parse(localStorage.getItem('user'));
         this.$onInit = function () {
             console.log("im in oninit");
-            domicileService.getAll(function (error, object) {
+            domicileService.getAll($ctrl.user.key, function (error, object) {
                 console.log(error, object);
                 $ctrl.domiciles = object;
                 
@@ -27,7 +28,15 @@
 
             });
         };
-
+        $ctrl.cancel = function(domicile){
+            console.log(domicile);
+            domicile.estado = 4;
+            domicileService.update(domicile, function (error) {
+                if(error){
+                    showMessage("Ocurrio un error, intenta de nuevo mas tarde.", null); 
+                }
+            })
+        }
         $ctrl.state = function (state) {
             if (state == 1) {
                 return "Pendiente";

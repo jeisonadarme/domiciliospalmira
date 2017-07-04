@@ -6,6 +6,7 @@
          $ctrl.submit = function(){
             var d = new Date();
             var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes();
+            var user = JSON.parse(localStorage.getItem('user'));
 
             var domicile = {
                 direccion: $ctrl.adress,
@@ -13,7 +14,8 @@
                 celular: $ctrl.phone,
                 estado: 1,
                 tiempoEspera: "No estimado",
-                fecha: datestring
+                fecha: datestring,
+                userId: user.key
             }
             
             domicileService.save(domicile, function(error, object){

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <title>Domicilios</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <!-- Fonts from Google Fonts -->
+	  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>  
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<base href="/">
+  </head>
+  <body ng-app="app">
+
+		<app></app>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <p id="modal-msg"></p>
+        </div>
+          <a id="modal-btn" href="#" class="btn btn-success btn-modal" onclick="hideMessage()">Aceptar</a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modal.js"></script>
+    
+    <!-- Node modules -->    
+		<script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
+
+    <!--Firebase--> 
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+		<script src="node_modules/angularfire/dist/angularfire.js"></script>    
+    <script src="firebaseConfig.js"></script>   
+    <!-- Angular libs -->        		
+      <!--Services-->
+		<script src="app/Common/Services/accountService.js"></script>      
+		<script src="app/Profile/Services/domicileService.js"></script>      
+      <!--controllers-->
+    <script src="app/Common/Components/Login/controller.js"></script>
+		<script src="app/Common/Components/Navbar/controller.js"></script>        
+		<script src="app/Home/Components/Header/controller.js"></script>   
+    <script src="app/Home/Components/Steps/controller.js"></script>
+		<script src="app/Profile/Components/Index/controller.js"></script>      
+    <script src="app/Home/Components/Index/controller.js"></script>
+    <script src="app/Profile/Components/List/controller.js"></script>
+    <script src="app/Profile/Components/Create/controller.js"></script>
+		<script src="app/Profile/profile.js"></script>          
+
+		<script src="app/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+		<br>
+        <br>
+        <div class="container crear-container">
+			<div class="row mt centered">
+				<div class="col-lg-6 col-lg-offset-3">
+					<h3>
+                         <b>NUEVO PEDIDO</b>
+                    </h3>
+				</div>
+			</div><!-- /row -->
+			<div class="row mt centered">
+				<div class="col-lg-3">
+				</div><!--/col-lg-4 -->
+				<div class="col-lg-6">
+                   <form ng-submit="$ctrl.submit()" name="formCreate">
+                        <label for="inputPassword5">Dirección</label>
+                        <input pattern="[A-Za-z0-9 #-\.]+" type="text" class="form-control" ng-model="$ctrl.adress" placeholder="ej. vereda el arenillo finca la ruisa" required maxlength="50">
+                        <br>
+                        <label for="inputPassword5">Número Celular</label>
+                        <input pattern="\d*" type="text" class="form-control" ng-model="$ctrl.phone" placeholder="ej. 3173248723" required maxlength="10">
+                        <br>
+                        <div class="form-group">
+                            <label for="exampleTextarea">Tú pedido</label>
+                            <textarea  class="form-control" id="exampleTextarea" ng-model="$ctrl.text" rows="6" required maxlength="250"
+                            placeholder="ej. 2 hamburguesas con e xtra de queso, 1 gaseosa 5 litros de donde doña julia."></textarea>
+                        </div>
+                        <p id="passwordHelpBlock" class="form-text">
+                            Entre mas detalles agregues, es mejor para nosotros.
+                        </p>
+                        <br>
+                        <button type="submit" class="btn btn-success btn-pedido">HACER PEDIDO!</button>
+                        <a ng-link="['IndexProfile']" class="btn btn-success btn-pedido btn-cancelar">CANCELAR</a>
+                   </form>
+                </div><!--/col-lg-4 -->
+				<div class="col-lg-3">
+				</div><!--/col-lg-4 -->
+			</div><!-- /row -->
+		</div><!-- /container -->
+         <link href="/assets/css/create.css" rel="stylesheet">

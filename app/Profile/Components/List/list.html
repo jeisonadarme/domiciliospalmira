@@ -1,0 +1,48 @@
+		<div class="container">
+			<div class="row mt centered">
+				<div class="col-lg-6 col-lg-offset-3">
+					<h3>Tus domiclios.</h3>
+				</div>
+			</div><!-- /row -->
+			
+			<div class="row mt centered" ng-cloak>
+				<div class="col-lg-2">
+				
+				</div><!--/col-lg-4 -->
+
+				<div class="col-lg-8">
+					<table class="table table-hover" ng-show="$ctrl.domiciles.length > 0">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Dirección</th>
+								<th>Pedido</th>
+								<th>Tiempo Espera</th>
+								<th>Estado</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="domicile in $ctrl.domiciles">
+								<th scope="row">{{$index + 1}}</th>
+								<td>{{domicile.direccion}}</td>
+								<td>{{domicile.pedido}}</td>
+								<td>{{domicile.tiempoEspera}}</td>
+								<td>{{$ctrl.state(domicile.estado)}}</td>
+								<td>
+									<a ng-link="['IndexProfile']" ng-disabled="domicile.estado != 1" class="btn btn-success btn-pedido btn-cancelar">CANCELAR</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div ng-show="$ctrl.empty" class="alert alert-danger" role="alert">
+						!Oh¡ Aun no tines pedidos. Qué esperas?
+					</div>
+				</div><!--/col-lg-4 -->
+
+				<div class="col-lg-2">
+				
+
+				</div><!--/col-lg-4 -->
+			</div><!-- /row -->
+		</div><!-- /container -->

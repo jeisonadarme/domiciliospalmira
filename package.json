@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "@angular/router": "^0.2.0",
+    "angular": "^1.6.4",
+    "angular-cookies": "^1.6.5",
+    "angularfire": "^2.3.0"
+  }
+}

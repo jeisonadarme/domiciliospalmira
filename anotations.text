@@ -1,0 +1,6 @@
+
+estado domicilio:
+1 = pendiente
+2 = en camino
+3 = entregado
+4 = cancelado

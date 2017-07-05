@@ -5,7 +5,7 @@
        var $ctrl = this;
     }
 
-    angular.module('profile', ['indexProfile', 'cretate', 'domicileService'])
+    angular.module('profile', ['indexProfile', 'cretate', 'domicileService', 'chat', 'chatService'])
         .component('profile', {
             templateUrl: 'app/Profile/Templates/profile.html',
             $routeConfig: [

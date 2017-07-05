@@ -49,10 +49,29 @@
                 });
             }
 
+            var loginEmail = function(email, password, callback){
+                auth.$signInWithEmailAndPassword(email, password).then(function(firebaseUser) {
+                    console.log("Signed in as:", firebaseUser.uid);
+                    callback(false, firebaseUser);
+                }).catch(function(error) {
+                    callback(true, error);
+                });
+            } 
+            
+            var logOut = function(callback){
+                var offAuth = auth.$onAuthStateChanged(callback);
+
+                // ... sometime later, unregister the callback
+                offAuth();
+                callback();
+            }
+
             return {
                 login: login,
                 get: get,
-                save: save
+                save: save,
+                loginEmail: loginEmail,
+                logOut: logOut
             }
         }])
 })();

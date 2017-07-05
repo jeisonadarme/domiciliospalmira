@@ -8,7 +8,8 @@
         'navbar',
         'accountService',
         'login',
-        'profile'])
+        'profile',
+        'admin'])
     .config(function ($locationProvider) {
         $locationProvider.html5Mode(true);
     })
@@ -18,7 +19,8 @@
         bindings: { $router: '<' },
         $routeConfig: [
            { path: "/", name: "Index", component: "index", useAsDefault: true },           
-           { path: "/misdomicilios/...", name: "Profile", component: "profile" }
+           { path: "/misdomicilios/...", name: "Profile", component: "profile" },
+           { path: "/administracion/...", name: "Admin", component: "admin" }
            // { path: "/notes/:id", name: "Notes", component: "notes"}
         ]
     });

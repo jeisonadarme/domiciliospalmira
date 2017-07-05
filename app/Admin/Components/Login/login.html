@@ -1,0 +1,32 @@
+		<br>
+        <br>
+        <div class="container crear-container">
+			<div class="row mt centered">
+				<div class="col-lg-6 col-lg-offset-3">
+					<h3>
+                         <b>Administración - Login</b>
+                    </h3>
+				</div>
+			</div><!-- /row -->
+			<div class="row mt centered">
+				<div class="col-lg-4">
+				</div><!--/col-lg-4 -->
+				<div class="col-lg-4">
+                   <form ng-submit="$ctrl.submit()" name="formLogin">
+                        <label for="inputPassword5">Email</label>
+                        <input type="email" class="form-control" ng-model="$ctrl.email" required>
+                        <br>
+                        <label for="inputPassword5">Password</label>
+                        <input type="password" class="form-control" ng-model="$ctrl.password" required>
+                        <br>
+                        <p id="passwordHelpBlock" class="form-text">
+                            Todos los datos son requeridos.
+                        </p>
+                        <br>
+                        <button id="btn-login" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Por favor espere..."  type="submit" class="btn btn-success btn-pedido">LOGIN!</button>
+                   </form>
+                </div><!--/col-lg-4 -->
+				<div class="col-lg-4">
+				</div><!--/col-lg-4 -->
+			</div><!-- /row -->
+		</div><!-- /container -->

@@ -28,6 +28,7 @@
 
             });
         };
+        
         $ctrl.cancel = function(domicile){
             console.log(domicile);
             domicile.estado = 4;

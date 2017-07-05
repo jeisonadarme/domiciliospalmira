@@ -153,7 +153,7 @@ i {
 
 
 /* Style all font awesome icons */
-.fa {
+.fa-facebook , .fa-twitter , .fa-google {
     padding: 15px;
     font-size: 30px !important;
     width: 70px;
@@ -439,7 +439,6 @@ h3{
     position: fixed;
     bottom: 2px;
     right: 10px;
-    display: none;
 }
 
 #btn-chat, #group-btn{ 
@@ -483,6 +482,10 @@ h3{
     padding: 10px !important;
 }
 
+.modal-dialog{
+    margin: 20% auto !important;
+}
+
 @media only screen and (max-device-width: 768px) { 
     .panel-body{
         height: 65vh;
@@ -505,4 +508,3 @@ h3{
         display: none;
     }
 }
-

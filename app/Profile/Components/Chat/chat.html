@@ -1,0 +1,55 @@
+<div id="container-floating">
+		<div id="floating-button" data-toggle="tooltip" data-placement="left" data-original-title="Chat" ng-click="$ctrl.showChatClick()">
+			<i class="fa fa-weixin chatico" aria-hidden="true"></i> 
+		</div>
+</div>
+	
+<div class="container chat-container" ng-show="$ctrl.showChat">
+     <div class="row">
+        <div class="col-md-7"></div>
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="accordion">
+                    <span class="glyphicon glyphicon-comment"></span> Chat
+                    <div class="btn-group pull-right">
+                        <a ng-click="$ctrl.showChatClick()" type="button" class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                </div>
+            <div class="panel-collapse" id="collapseOne">
+                <div class="panel-body" id="panel-body">
+                    <ul class="chat">
+                        <li class="clearfix" ng-class="message.esPropio ? 'right' : 'left'" ng-repeat="message in $ctrl.messages">
+                            <span ng-if="$ctrl.messages[$index - 1].esPropio != message.esPropio" class="chat-img" ng-class="message.esPropio ? 'pull-right' : 'pull-left'">
+                                <img src="{{message.urlImage}}" alt="User Avatar" class="img-circle" />
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong ng-if="$ctrl.messages[$index - 1].esPropio != message.esPropio" class="primary-font" ng-class="message.esPropio ? 'pull-right' : 'pull-left'">{{message.nombre}}</strong>
+                                </div>
+                                <p ng-class="!message.esPropio ? 'pull-right' : 'pull-left'">
+                                   {{message.mensaje}} <br/>
+
+                                    <small class=" text-muted">{{message.fecha}}</small>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <form ng-submit="$ctrl.submit()">
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input id="btn-input" ng-model="$ctrl.message" required type="text" class="form-control input-sm" placeholder="Escribe tu mensaje aquí..." />
+                            <span class="input-group-btn" id="group-btn">
+                                <button class="btn btn-success btn-sm" id="btn-chat" type="submit">
+                                    Enviar</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

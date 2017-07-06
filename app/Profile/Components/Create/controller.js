@@ -12,7 +12,7 @@
                 direccion: $ctrl.adress,
                 pedido: $ctrl.text,
                 celular: $ctrl.phone,
-                estado: 1,
+                estado: "1",
                 tiempoEspera: "No estimado",
                 fecha: datestring,
                 userId: user.key

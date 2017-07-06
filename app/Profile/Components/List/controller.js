@@ -31,7 +31,7 @@
         
         $ctrl.cancel = function(domicile){
             console.log(domicile);
-            domicile.estado = 4;
+            domicile.estado = "4";
             domicileService.update(domicile, function (error) {
                 if(error){
                     showMessage("Ocurrio un error, intenta de nuevo mas tarde.", null); 

@@ -1,1 +1,64 @@
-<h1>INDEX ADMIN</h1>
+			<div id="headerwrapPerfil">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<h1>Bienvenido! al modulo de administración.</h1>				
+					</div><!-- /col-lg-6 -->
+						<div class="col-lg-2"></div>
+					<div class="col-lg-4 text-center">
+					</div><!-- /col-lg-6 -->
+				</div><!-- /row -->
+			</div><!-- /container -->
+		</div><!-- /headerwrap -->
+
+        <div class="container">
+			<div class="row mt centered">
+				<div class="col-lg-6 col-lg-offset-3">
+					<h3>Todos los domicilios.</h3>
+				</div>
+			</div><!-- /row -->
+			
+			<div class="row mt centered" ng-cloak>
+
+				<div class="col-lg-12">
+					<table class="table table-hover" ng-show="$ctrl.domiciles.length > 0">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Dirección</th>
+								<th>Pedido</th>
+								<th>Tiempo Espera</th>
+								<th>Estado</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="domicile in $ctrl.domiciles">
+								<th scope="row">{{$index + 1}}</th>
+								<td>
+									{{domicile.direccion}}
+								</td>
+								<td style="max-width: 300px">
+									{{domicile.pedido}}
+								</td>
+								<td>
+									<input type="text" class="form-control" ng-model="domicile.tiempoEspera">
+								</td>
+								<td>
+                                    <select class="form-control" ng-model="domicile.estado">
+                                        <option value="1">Pendiente</option>
+                                        <option value="2">En camino</option>
+                                        <option value="3">Entregado</option>
+                                        <option value="4">Cancelado</option>
+                                    </select>
+                                </td>
+								<td>
+									<a ng-click="$ctrl.save(domicile)" class="btn btn-success btn-pedido">GUARDAR</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div><!--/col-lg-4 -->
+
+			</div><!-- /row -->
+		</div><!-- /container -->

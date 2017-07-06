@@ -9,12 +9,14 @@
             var user = JSON.parse(localStorage.getItem('user'));
 
             var domicile = {
+                codigo: getRandomInt(1000, 10000),
                 direccion: $ctrl.adress,
                 pedido: $ctrl.text,
                 celular: $ctrl.phone,
                 estado: "1",
                 tiempoEspera: "No estimado",
                 fecha: datestring,
+                costo: "",
                 userId: user.key
             }
             
@@ -27,6 +29,10 @@
                 }
             });
          }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
     }
 
     angular.module('cretate', [])

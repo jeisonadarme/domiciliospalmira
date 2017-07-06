@@ -1,16 +1,39 @@
-		<div class="container">
-			<div class="row mt centered">
-				<div class="col-lg-6 col-lg-offset-3">
-					<h3>Tus domiclios.</h3>
-				</div>
-			</div><!-- /row -->
-			
-			<div class="row mt centered" ng-cloak>
-				<div class="col-lg-2">
-				
-				</div><!--/col-lg-4 -->
+<div class="container">
+	<div class="row mt centered">
+		<div class="col-lg-6 col-lg-offset-3">
+			<h3>Tus domiclios.</h3>
+		</div>
+	</div>
+	<!-- /row -->
+	<div class="table-container">
+		<table class="table table-filter">
+			<tbody>
+				<tr data-status="{{$ctrl.state(domicile.estado)}}" ng-repeat="domicile in $ctrl.domiciles | orderBy:'estado'">
+					<td>
+						<div class="media">
+							<div class="media-body">
+								<span class="media-meta pull-right">{{domicile.fecha}}</span>
+								<h4 class="title">
+									#{{domicile.codigo}}
+									<span class="pull-right {{$ctrl.state(domicile.estado)}}">({{$ctrl.state(domicile.estado)}})</span>
+								</h4>
+								<p class="summary"><span class="title">Espera:</span> {{domicile.tiempoEspera}}</p>
+								<p class="summary"><span class="title">Pedido:</span> {{domicile.pedido}}</p>
+								<p class="summary"><span class="title">Costo:</span> {{domicile.costo}}</p>
+								<a ng-click="$ctrl.cancel(domicile)" ng-disabled="domicile.estado != 1" class="pull-right btn btn-success btn-pedido btn-cancelar">CANCELAR</a>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
-				<div class="col-lg-8">
+	<!--	<div class="row mt centered" ng-cloak>
+
+
+				<div class="col-lg-12">
+					
 					<table class="table table-hover" ng-show="$ctrl.domiciles.length > 0">
 						<thead>
 							<tr>
@@ -19,6 +42,7 @@
 								<th>Pedido</th>
 								<th>Tiempo Espera</th>
 								<th>Estado</th>
+								<th>Costo</th>
 								<th></th>
 							</tr>
 						</thead>
@@ -29,20 +53,18 @@
 								<td>{{domicile.pedido}}</td>
 								<td>{{domicile.tiempoEspera}}</td>
 								<td>{{$ctrl.state(domicile.estado)}}</td>
+								<td>{{domicile.costo}}</td>
 								<td>
 									<a ng-click="$ctrl.cancel(domicile)" ng-disabled="domicile.estado != 1" class="btn btn-success btn-pedido btn-cancelar">CANCELAR</a>
 								</td>
 							</tr>
 						</tbody>
-					</table>
+					</table> 
+
 					<div ng-show="$ctrl.empty" class="alert alert-danger" role="alert">
 						!Oh¡ Aun no tines pedidos. Qué esperas?
 					</div>
-				</div><!--/col-lg-4 -->
-
-				<div class="col-lg-2">
-				
-
-				</div><!--/col-lg-4 -->
-			</div><!-- /row -->
-		</div><!-- /container -->
+				</div>
+			</div> /row -->
+</div>
+<!-- /container -->

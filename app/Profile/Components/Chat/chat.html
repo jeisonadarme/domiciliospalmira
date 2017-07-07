@@ -22,11 +22,11 @@
                     <ul class="chat">
                         <li class="clearfix" ng-class="message.esPropio ? 'right' : 'left'" ng-repeat="message in $ctrl.messages">
                             <span ng-if="$ctrl.messages[$index - 1].esPropio != message.esPropio" class="chat-img" ng-class="message.esPropio ? 'pull-right' : 'pull-left'">
-                                <img src="{{message.urlImage}}" alt="User Avatar" class="img-circle" />
+                                <img src="{{$ctrl.chat.urlImage}}" alt="User Avatar" class="img-circle chat-image" />
                             </span>
                             <div class="chat-body clearfix">
                                 <div class="header">
-                                    <strong ng-if="$ctrl.messages[$index - 1].esPropio != message.esPropio" class="primary-font" ng-class="message.esPropio ? 'pull-right' : 'pull-left'">{{message.nombre}}</strong>
+                                    <strong ng-if="$ctrl.messages[$index - 1].esPropio != message.esPropio" class="primary-font" ng-class="message.esPropio ? 'pull-right' : 'pull-left'">{{$ctrl.chat.nombre}}</strong>
                                 </div>
                                 <p ng-class="!message.esPropio ? 'pull-right' : 'pull-left'">
                                    {{message.mensaje}} <br/>

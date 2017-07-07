@@ -20,7 +20,7 @@
         }
     }
 
-    angular.module('admin', ['adminLogin', 'adminIndex'])
+    angular.module('admin', ['adminLogin', 'adminIndex', 'adminChat'])
         .component('admin', {
             templateUrl: 'app/Admin/Templates/profile.html',
             $routeConfig: [{

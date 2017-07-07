@@ -1,0 +1,39 @@
+<table id="container-floatinga">
+	<tr>
+		<td ng-repeat="chat in $ctrl.chats">
+			<div class="shake">
+				<div id="floating-buttona" data-toggle="tooltip" data-placement="left" data-original-title="Chat" ng-click="$ctrl.showChatClick()">
+					<img src="{{chat.urlImage}}" alt="User Avatar" class="img-circle chat-img-circle" />
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>
+
+
+
+<style>
+	.chat-img-circle {
+		margin: 2px;
+		max-width: 50px;
+	}
+
+	#floating-buttona {
+		width: 55px;
+		height: 55px;
+		border-radius: 50%;
+		background: #db4437;
+		cursor: pointer;
+		box-shadow: 0px 2px 5px #666;
+	}
+
+	#container-floatinga {
+		position: fixed;
+		width: 70px;
+		height: 70px;
+		z-index: 50px;
+		position: fixed;
+		bottom: 30px;
+		right: 60px;
+	}
+</style>

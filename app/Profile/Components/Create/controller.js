@@ -17,7 +17,8 @@
                 tiempoEspera: "No estimado",
                 fecha: datestring,
                 costo: "",
-                userId: user.key
+                userId: user.key,
+                nombre: user.name
             }
             
             domicileService.save(domicile, function(error, object){

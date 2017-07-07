@@ -6,6 +6,9 @@
 	</div>
 	<!-- /row -->
 	<div class="table-container">
+		<div ng-show="$ctrl.empty" class="alert alert-danger" role="alert">
+			!Oh¡ Aun no tines pedidos. Qué esperas?
+		</div>
 		<table class="table table-filter">
 			<tbody>
 				<tr data-status="{{$ctrl.state(domicile.estado)}}" ng-repeat="domicile in $ctrl.domiciles | orderBy:'estado'">

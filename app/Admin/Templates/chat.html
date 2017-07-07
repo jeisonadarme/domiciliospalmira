@@ -1,0 +1,56 @@
+<div class="shake">
+    <div id="floating-buttona" ng-click="show(chat)" class="text-center" data-toggle="tooltip" data-placement="left" data-original-title="Chat">
+        <span class="tab-chat-name">{{chat.nombre}}</span>
+        <a ng-click="closeTab()" type="button" class="btn btn-default btn-xs close-tab pull-right">
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+    </div>
+</div>
+
+<div class="container chat-container" ng-show="showChat">
+     <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="accordion">
+                    <span class="glyphicon glyphicon-comment"></span> {{chat.nombre}}
+                    <div class="btn-group pull-right">
+                        <a ng-click="show()" type="button" class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </div>
+                </div>
+            <div class="panel-collapse" id="collapseOne">
+                <div class="panel-body" id="panel-body">
+                    <ul class="chat">
+                        <li class="clearfix" ng-class="message.esPropio ? 'right' : 'left'" ng-repeat="message in messages">
+                            <span ng-if="messages[$index - 1].esPropio != message.esPropio" class="chat-img" ng-class="message.esPropio ? 'pull-right' : 'pull-left'">
+                                <img ng-if="message.esPropio" src="{{chat.urlImage}}" alt="User Avatar" class="img-circle chat-image" />
+                                <img ng-if="!message.esPropio" src="assets/img/davidfoto.jpg" alt="User Avatar" class="img-circle chat-image" />
+                            </span>
+                            <div class="chat-body clearfix">
+                                <p ng-class="!message.esPropio ? 'pull-right' : 'pull-left'">
+                                   {{message.mensaje}} <br/>
+
+                                    <small class=" text-muted">{{message.fecha}}</small>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <form ng-submit="submit()">
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input id="btn-input" ng-model="message" required type="text" class="form-control input-sm" placeholder="Escribe tu mensaje aquí..." />
+                            <span class="input-group-btn" id="group-btn">
+                                <button class="btn btn-success btn-sm" id="btn-chat" type="submit">
+                                    Enviar</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,7 @@
 <table id="container-floatinga">
 	<tr>
 		<td ng-repeat="chat in $ctrl.chats">
-			<div class="shake">
-				<div id="floating-buttona" data-toggle="tooltip" data-placement="left" data-original-title="Chat" ng-click="$ctrl.showChatClick()">
-					<img src="{{chat.urlImage}}" alt="User Avatar" class="img-circle chat-img-circle" />
-				</div>
-			</div>
+			<chat-directive chat="chat"></chat-directive>
 		</td>
 	</tr>
 </table>
@@ -13,27 +9,43 @@
 
 
 <style>
+	.close-tab{
+		border-radius: 20px;
+		margin-top: 3px;
+	}
+	.tab-chat-name{
+		color: white;
+		top: 3px;
+	}
+
 	.chat-img-circle {
 		margin: 2px;
 		max-width: 50px;
 	}
 
 	#floating-buttona {
-		width: 55px;
-		height: 55px;
-		border-radius: 50%;
+		width: 150px;
+		height: 30px;
+		/*border-radius: 50%;*/
 		background: #db4437;
 		cursor: pointer;
-		box-shadow: 0px 2px 5px #666;
+		box-shadow: 0px 2px 5px #666;    
+		border-radius: 7px;
 	}
 
 	#container-floatinga {
 		position: fixed;
-		width: 70px;
+		/*width: 70px;
 		height: 70px;
-		z-index: 50px;
+		z-index: 50px;*/
 		position: fixed;
-		bottom: 30px;
-		right: 60px;
+		bottom: -8px;
+		right: 20px;
+		border-collapse: separate;
+    	border-spacing: 5px 3px;
+	}
+
+	#floating-buttona:hover{
+		height: 40px;
 	}
 </style>

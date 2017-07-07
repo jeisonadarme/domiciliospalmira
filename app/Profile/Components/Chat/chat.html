@@ -6,8 +6,8 @@
 	
 <div class="container chat-container" ng-show="$ctrl.showChat">
      <div class="row">
-        <div class="col-md-7"></div>
-        <div class="col-md-5">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading" id="accordion">
                     <span class="glyphicon glyphicon-comment"></span> Chat
@@ -22,11 +22,13 @@
                     <ul class="chat">
                         <li class="clearfix" ng-class="message.esPropio ? 'right' : 'left'" ng-repeat="message in $ctrl.messages">
                             <span ng-if="$ctrl.messages[$index - 1].esPropio != message.esPropio" class="chat-img" ng-class="message.esPropio ? 'pull-right' : 'pull-left'">
-                                <img src="{{$ctrl.chat.urlImage}}" alt="User Avatar" class="img-circle chat-image" />
+                           
+                                <img ng-if="message.esPropio" src="{{$ctrl.chat.urlImage}}" alt="User Avatar" class="img-circle chat-image" />
+                                <img ng-if="!message.esPropio" src="assets/img/davidfoto.jpg" alt="User Avatar" class="img-circle chat-image" />
                             </span>
                             <div class="chat-body clearfix">
                                 <div class="header">
-                                    <strong ng-if="$ctrl.messages[$index - 1].esPropio != message.esPropio" class="primary-font" ng-class="message.esPropio ? 'pull-right' : 'pull-left'">{{$ctrl.chat.nombre}}</strong>
+                                    <strong ng-if="$ctrl.messages[$index - 1].esPropio != message.esPropio" class="primary-font" ng-class="message.esPropio ? 'pull-right' : 'pull-left'"></strong>
                                 </div>
                                 <p ng-class="!message.esPropio ? 'pull-right' : 'pull-left'">
                                    {{message.mensaje}} <br/>

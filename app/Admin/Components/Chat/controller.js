@@ -15,7 +15,6 @@
                             $( ".shake" ).effect( "shake" );
                         }, 30);
                     }
-                    console.log("domiciles.$watch", obeject);
                 });
 
                 $ctrl.chats.$loaded(function(obeject){
@@ -23,16 +22,6 @@
                     console.log("loaded", object);
                 })
             });
-         }
-
-         $ctrl.showChatClick = function()
-         {
-             $ctrl.showChat = !$ctrl.showChat;
-             setTimeout(function() {
-                var objDiv = document.getElementById("panel-body");
-                objDiv.scrollTop = objDiv.scrollHeight;
-                console.log("panel", objDiv);
-            }, 10);
          }
 
          $ctrl.submit = function(){

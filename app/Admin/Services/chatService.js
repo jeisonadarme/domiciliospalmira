@@ -22,12 +22,20 @@
                     callback(true, error);
                 });
             }
-
+            
             var updateChat = function (chat, callback) {
                 var chatRef = firebase.database().ref().child(chatNode);
                 var obj = $firebaseObject(chatRef.child(chat.$id));
                 obj.$loaded().then(function () {
                     obj.mensajesNuevos = chat.mensajesNuevos;
+                    obj.ventanaAbierta = chat.ventanaAbierta;
+                    
+                    if(chat.mensajesNuevos || chat.ventanaAbierta){
+                        obj.filter = true;
+                    }else{
+                        obj.filter = false;
+                    }
+
                     obj.$save();
                 }).then(function () {
                     callback(false);
@@ -52,7 +60,10 @@
             }
 
             return {
-                getAllChats: getAllChats
+                getAllChats: getAllChats,
+                getAllMessages: getAllMessages,
+                updateChat: updateChat,
+                save: save
             }
         }])
 })();

@@ -35,7 +35,7 @@
                 var objDiv = document.getElementById("panel-body");
                 objDiv.scrollTop = objDiv.scrollHeight;
                 console.log("panel", objDiv);
-            }, 10);
+            }, 500);
         }
 
         $ctrl.submit = function () {
@@ -58,7 +58,9 @@
                     $ctrl.chat.mensajesNuevos = true;
                     chatService.updateChat($ctrl.chat, function (error, object) {
                         console.log("chat", error, object);
-                    })
+                    });
+                    var objDiv = document.getElementById("panel-body");
+                    objDiv.scrollTop = objDiv.scrollHeight;
                 }
             });
         }

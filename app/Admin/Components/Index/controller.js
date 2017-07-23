@@ -36,6 +36,8 @@
                 adminService.update(domicile, function (error) {
                     if(error){
                         showMessage("Ocurrio un error, intenta de nuevo mas tarde.", null); 
+                    }else{
+                        toastr.success('El pedido fue actualizado exitosamente!', 'Actualización');
                     }
                 })
             }

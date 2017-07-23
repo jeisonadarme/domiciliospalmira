@@ -8,6 +8,8 @@
             var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes();
             var user = JSON.parse(localStorage.getItem('user'));
 
+            console.log("this is the user", user);
+
             var domicile = {
                 codigo: getRandomInt(1000, 10000),
                 direccion: $ctrl.adress,
@@ -18,13 +20,15 @@
                 fecha: datestring,
                 costo: "",
                 userId: user.key,
-                nombre: user.name
+                nombre: user.nombre
             }
             
+            console.log("este es el domicilio", domicile);
+
             domicileService.save(domicile, function(error, object){
                 console.log(error, object);
                 if(!error){
-                    showMessage("Pedido satisfactorio.", "/misdomicilios");
+                    showMessage("Pedido realizado con exíto.", "/misdomicilios");
                 }else{
                     showMessage("Ocurrio un error, intenta de nuevo mas tarde.", null);                    
                 }

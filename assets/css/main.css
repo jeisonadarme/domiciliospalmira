@@ -725,3 +725,7 @@ h3 {
 .chat-image {
     max-width: 50px;
 }
+
+.img-navbar{
+    max-width: 80% !important;
+}

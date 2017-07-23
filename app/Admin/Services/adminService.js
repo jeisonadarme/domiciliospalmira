@@ -22,6 +22,7 @@
                 obj.estado = domicile.estado;
                 obj.direccion = domicile.direccion;
                 obj.pedido = domicile.pedido;
+                obj.costo = domicile.costo;
                 obj.tiempoEspera = domicile.tiempoEspera;
                 obj.$save();
             }).then(function() {

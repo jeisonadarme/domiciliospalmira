@@ -34,11 +34,19 @@
 						<th>Costo</th>
 						<th>Tiempo Espera</th>
 						<th>Estado</th>
-						<th></th>
+						<th>
+							<select class="form-control" ng-model="$ctrl.filterStatus">
+										<option value="">Todos</option>
+                                        <option value="1">Pendiente</option>
+                                        <option value="2">En camino</option>
+                                        <option value="3">Entregado</option>
+                                        <option value="4">Cancelado</option>
+                            </select>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="domicile in $ctrl.domiciles">
+					<tr ng-repeat="domicile in $ctrl.domiciles | filter:{estado:$ctrl.filterStatus}">
 						<th scope="row">#{{domicile.codigo}}</th>
 						<td>
 							{{domicile.nombre}}

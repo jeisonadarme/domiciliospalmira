@@ -2,7 +2,6 @@
     'use strict';
 
     function index(){
-
     }
 
     angular.module('indexProfile', ['list'])

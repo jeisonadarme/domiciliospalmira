@@ -7,6 +7,7 @@
         $ctrl.show = false;
         
         var user = localStorage.getItem('admin');
+        console.log("this is the user" , user);
         if (user != "null" && user != null){
             $ctrl.show = true;
         }

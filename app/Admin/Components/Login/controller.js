@@ -11,17 +11,49 @@
                     $("#btn-login").button("reset");
                     return;
                 } else {
+
                     var user = {
                         uid: firebase.uid,
                         email: firebase.email
                     }
-                    
-                    console.log(firebase, user);
 
-                    localStorage.setItem('admin', JSON.stringify(user));
-                    location.href = "/administracion/lista";
+                    accountService.get(user.uid, function (data) {
+                        if (data == null) {
+                            var newUser = {
+                                uid: user.uid,
+                                //nombre: user.displayName,
+                                //urlImage: user.photoURL,
+                                email: user.email
+                            }
+                            accountService.save(newUser, function (error, key) {
+                                if (error) {
+                                    showMessage("Ocurrio un error, intenta de nuevo mas tarde.", null);
+                                    return;
+                                } else {
+                                    newUser["key"] = key;
+                                    redirect(newUser);
+                                }
+                            });
+                        } else {
+                            var newUser = {
+                                uid: user.uid,
+                                //nombre: user.displayName,
+                                //urlImage: user.photoURL,
+                                email: user.email,
+                                key: data.$id
+                            }
+                            redirect(newUser);
+                        }
+                    })
                 }
             })
+        }
+
+        function redirect(user) {
+            console.log(user);
+            localStorage.setItem('admin', JSON.stringify(user));
+            localStorage.setItem('role', "admin");
+            location.href = "/administracion/lista";
         }
     }
 

@@ -76,6 +76,7 @@
         function redirect(user){
             console.log(user);
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('role', "domicile");
             location.href = "/misdomicilios";
         }
     }

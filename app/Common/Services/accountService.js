@@ -40,6 +40,19 @@
                 });
             }
 
+            var update = function (user, callback) {
+                var userRef = firebase.database().ref().child(userNode);
+                var obj = $firebaseObject(userRef.child(user.key));
+                obj.$loaded().then(function () {
+                    obj.cloudMessageId = user.cloudMessageId;
+                    obj.$save();
+                }).then(function () {
+                    callback(false);
+                }).catch(function (error) {
+                    callback(true);
+                });
+            }
+
             var login = function (provider, callback) {
                 // login with Facebook
                 auth.$signInWithPopup(provider).then(function (firebaseUser) {
@@ -49,16 +62,16 @@
                 });
             }
 
-            var loginEmail = function(email, password, callback){
-                auth.$signInWithEmailAndPassword(email, password).then(function(firebaseUser) {
+            var loginEmail = function (email, password, callback) {
+                auth.$signInWithEmailAndPassword(email, password).then(function (firebaseUser) {
                     console.log("Signed in as:", firebaseUser.uid);
                     callback(false, firebaseUser);
-                }).catch(function(error) {
+                }).catch(function (error) {
                     callback(true, error);
                 });
-            } 
-            
-            var logOut = function(callback){
+            }
+
+            var logOut = function (callback) {
                 var offAuth = auth.$onAuthStateChanged(callback);
 
                 // ... sometime later, unregister the callback
@@ -71,7 +84,8 @@
                 get: get,
                 save: save,
                 loginEmail: loginEmail,
-                logOut: logOut
+                logOut: logOut,
+                update: update
             }
         }])
 })();

@@ -9,7 +9,8 @@
         'accountService',
         'login',
         'profile',
-        'admin'])
+        'admin',
+        'cloudMessaging'])
     .config(function ($locationProvider) {
         $locationProvider.html5Mode(true);
     })
